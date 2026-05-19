@@ -36,7 +36,7 @@ A aplicação é totalmente baseada em Python e conta com:
 ## 👥 Equipe
 
 * **Alex Barbosa Almeida — alexbarbosa@ufmg.br**
-* **Maike Moreira da silva — @ufmg.br**
+* **Maike Moreira da silva — maikems.ufmg@gmail.com**
 
 ## 🔄 Padrão de Desenvolvimento
 
