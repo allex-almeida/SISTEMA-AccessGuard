@@ -33,6 +33,27 @@ A aplicação é totalmente baseada em Python e conta com:
 * **Persistência de Dados:** Banco de dados local `SQLite` para armazenamento persistente de cadastros e logs.
 * **Modelagem:** Diagramas de Classes (UML) detalhando as relações arquiteturais do sistema.
 
+## 👥 Equipe
+
+* **Alex Barbosa Almeida — alexbarbosa@ufmg.br**
+* **Maike Moreira da silva — @ufmg.br**
+
+## 🔄 Padrão de Desenvolvimento
+
+Para mantermos o histórico organizado e garantir a qualidade do código, adotamos um fluxo de trabalho colaborativo rigoroso:
+Padrões de Commit (Conventional Commits)
+
+* **`feat:`** Novas funcionalidades (ex: feat: implementa polimorfismo no método validar_acesso da classe Visitante)
+* **`fix:`** Correção de bugs (ex: fix: corrige erro de gravação de log no SQLite)
+* **`docs:`** Alterações na documentação (ex: docs: adiciona diagrama UML atualizado na pasta docs)
+* **`chore:`** Tarefas de manutenção ou configuração (ex: chore: adiciona CustomTkinter no requirements.txt)
+
+Fluxo de Pull Request (PR)
+* Nenhum **`commit`** direto na **`main:`** A branch principal deve estar sempre rodando sem erros.
+* Criação de **`Branch:`** Antes de iniciar a codificação de uma nova classe ou tela, crie uma branch: git checkout -b feature/classe-funcionario.
+* **`Pull Request:`** Ao finalizar a lógica, faça o push da branch e abra um PR no GitHub detalhando os métodos criados.
+* Revisão Obrigatória: 1 colega de equipe deve revisar o código, verificando especialmente se os princípios de POO (como o encapsulamento) foram respeitados antes de aprovar o merge.
+
 ## 🚀 Como executar o projeto
 
 1. Clone este repositório:
