@@ -15,7 +15,7 @@ class Visitante(Pessoa):
         self.__horaEntrada = ""
         self.__horaSaida = ""
 
-        self.__contadorAcessos = 0
+        self.__contadorAcessos = 5
         self.__limiteAcessos = limiteAcessos
 
 
