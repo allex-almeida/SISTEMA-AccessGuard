@@ -26,13 +26,13 @@ class Pessoa:
 
     
     def set_nome(self, nome):
-        self.__nome
+        self.__nome = nome
         
     def set_cpf(self, cpf):
-        self.__cpf
+        self.__cpf = cpf
         
     def set_identificacao(self, identificacao):
-        self.__identificacao
+        self.__identificacao = identificacao
         
     def set_email(self, email):
         self.__email
@@ -40,24 +40,24 @@ class Pessoa:
             self.__email = email
         
     def set_ativo(self, ativo):
-        self.__ativo
+        self.__ativo = ativo
 
     
     def exibir_dados(self):
         print(f"    DADOS DA PESSOA     ")
-        print(f"\nNome: {self.nome}")
-        print(f"\nCPF: {self.cpf}")
-        print(f"ID: {self.identificacao}")
-        print(f"E-mail: {self.email}")
+        print(f"\nNome: {self.get_nome()}")
+        print(f"\nCPF: {self.get_cpf()}")
+        print(f"ID: {self.get_identificacao()}")
+        print(f"E-mail: {self.get_email()}")
         
-        if self.ativo:
+        if self.get_ativo:
             print(f"Status : ATIVO")
         else: 
             print(f"Status : INATIVO")
             
             
     def validar_cpf(self):
-        if len(self.cpf) == 11 and self.cpfisdigit():
+        if len(self.__cpf) == 11 and self.__cpf.isdigit():
             return True
         return False
         
