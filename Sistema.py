@@ -20,7 +20,7 @@ class Sistema:
 
     def cadastrar_funcionario(self):
 
-        print("\n===== CADASTRO FUNCIONÁRIO =====")
+        print("\n      CADASTRO FUNCIONÁRIO      ")
 
         nome = input("Nome: ")
         cpf = input("CPF: ")
@@ -39,7 +39,7 @@ class Sistema:
 
     def cadastrar_visitante(self):
 
-        print("\n===== CADASTRO VISITANTE =====")
+        print("\n      CADASTRO VISITANTE      ")
 
         nome = input("Nome: ")
         cpf = input("CPF: ")
@@ -58,7 +58,7 @@ class Sistema:
 
     def listar_funcionarios(self):
 
-        print("\n===== FUNCIONÁRIOS =====")
+        print("\n      FUNCIONÁRIOS      ")
 
         for funcionario in self.__listaFuncionarios:
 
@@ -69,7 +69,7 @@ class Sistema:
 
     def listar_visitantes(self):
 
-        print("\n===== VISITANTES =====")
+        print("\n      VISITANTES      ")
 
         for visitante in self.__listaVisitantes:
 
@@ -84,7 +84,7 @@ class Sistema:
 
         while opcao != 5:
 
-            print("\n===== SISTEMA PORTARIA =====")
+            print("\n      SISTEMA PORTARIA      ")
             print("1 - Cadastrar Funcionário")
             print("2 - Cadastrar Visitante")
             print("3 - Listar Funcionários")
