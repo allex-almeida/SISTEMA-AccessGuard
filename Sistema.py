@@ -49,7 +49,7 @@ class Sistema:
 
         self.__listaFuncionarios.append(funcionario)
 
-        print("\n===== FUNCIONÁRIO CADASTRADO COM SUCESSO =====")
+        print("\n      FUNCIONÁRIO CADASTRADO COM SUCESSO      ")
 
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
@@ -96,7 +96,7 @@ class Sistema:
 
     def listar_funcionarios(self):
 
-        print("\n===== FUNCIONÁRIOS =====")
+        print("\n      FUNCIONÁRIOS      ")
 
         for funcionario in self.__listaFuncionarios:
 
@@ -107,7 +107,7 @@ class Sistema:
 
     def listar_visitantes(self):
 
-        print("\n===== VISITANTES =====")
+        print("\n      VISITANTES      ")
 
         for visitante in self.__listaVisitantes:
 
