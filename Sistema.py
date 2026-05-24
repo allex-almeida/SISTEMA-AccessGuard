@@ -11,11 +11,17 @@ class Sistema:
         self.__listaVisitantes = []
 
 
-    def gerar_id(self):
+    def gerar_id_funcionario(self):
 
-        total = len(self.__listaFuncionarios) + len(self.__listaVisitantes)
+        total = len(self.__listaFuncionarios)
 
-        return total + 1000
+        return f"FUN{total+1000}"
+        
+ def gerar_id_visitante(self):
+
+        total = len(self.__listaVisitantes)
+
+        return f"VIS{total+2000}"
 
 
     def cadastrar_funcionario(self):
@@ -24,7 +30,7 @@ class Sistema:
 
         nome = input("Nome: ")
         cpf = input("CPF: ")
-        identificacao = self.gerar_id()
+        identificacao = self.gerar_id_funcionario()
         email = input("E-mail: ")
         cargo = input("Cargo: ")
         setor = input("Setor: ")
@@ -43,7 +49,7 @@ class Sistema:
 
         nome = input("Nome: ")
         cpf = input("CPF: ")
-        identificacao = self.gerar_id()
+        identificacao = self.gerar_id_visitante()
         email = input("E-mail: ")
         empresaVisitada = input("Empresa Visitada: ")
 
