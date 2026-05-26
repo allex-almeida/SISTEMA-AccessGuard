@@ -53,15 +53,19 @@ class Sistema:
             with open("dados.json", "r", encoding="utf-8") as arquivo:
                 dados = json.load(arquivo)
                 
-                for f in dados["funcionarios"]:
-                    func = Funcionario(f["nome"], f["cpf"], f["identificacao"], f["email"], f["cargo"], f["setor"])
-                    self.__listaFuncionarios.append(func)
+                if dados and "funcionarios" in dados:
+                    for f in dados["funcionarios"]:
+                        func = Funcionario(f["nome"], f["cpf"], f["identificacao"], f["email"], f["cargo"], f["setor"])
+                        self.__listaFuncionarios.append(func)
                 
-                for v in dados["visitantes"]:
-                    vis = Visitante(v["nome"], v["cpf"], v["identificacao"], v["email"], v["empresaVisitada"], "18:00", 6)
-                    self.__listaVisitantes.append(vis)
-        except FileNotFoundError:
-            pass
+                if dados and "visitantes" in dados:
+                    for v in dados["visitantes"]:
+                        vis = Visitante(v["nome"], v["cpf"], v["identificacao"], v["email"], v["empresaVisitada"], "18:00", 6)
+                        self.__listaVisitantes.append(vis)
+        except (FileNotFoundError, KeyError, json.JSONDecodeError):
+            self.__listaFuncionarios = []
+            self.__listaVisitantes = []
+            
 
     def cadastrar_funcionario(self):
         print("\n ===== CADASTRO FUNCIONÁRIO =====")
