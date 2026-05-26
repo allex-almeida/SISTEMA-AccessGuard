@@ -27,7 +27,8 @@ class Sistema:
 
     def cadastrar_funcionario(self):
 
-        print("\n      CADASTRO FUNCIONÁRIO      ")
+        print("\n ===== CADASTRO FUNCIONÁRIO =====")
+        print(f"\n")        
 
         nome = input("Nome: ")
         cpf = input("CPF: ")
@@ -62,7 +63,8 @@ class Sistema:
 
     def cadastrar_visitante(self):
 
-        print("\n      CADASTRO VISITANTE      ")
+        print("\n ===== CADASTRO VISITANTE =====")
+        print("\n")
 
         nome = input("Nome: ")
         cpf = input("CPF: ")
@@ -84,7 +86,8 @@ class Sistema:
 
         self.__listaVisitantes.append(visitante)
 
-        print("\n      VISITANTE CADASTRADO COM SUCESSO      ")
+        print("\n ===== VISITANTE CADASTRADO COM SUCESSO =====")
+        print("\n")
 
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
@@ -96,7 +99,8 @@ class Sistema:
 
     def listar_funcionarios(self):
 
-        print("\n      FUNCIONÁRIOS      ")
+        print("\n ===== FUNCIONÁRIOS ===== ")
+        print("\n")
 
         for funcionario in self.__listaFuncionarios:
 
@@ -107,7 +111,8 @@ class Sistema:
 
     def listar_visitantes(self):
 
-        print("\n      VISITANTES      ")
+        print("\n ===== VISITANTES ===== ")
+        print("\n")
 
         for visitante in self.__listaVisitantes:
 
@@ -122,7 +127,8 @@ class Sistema:
 
         while opcao != 5:
 
-            print("\n      SISTEMA PORTARIA      ")
+            print("\n ===== SISTEMA PORTARIA ===== ")
+            print("\n")
 
             print("1 - Cadastrar Funcionário")
             print("2 - Cadastrar Visitante")
