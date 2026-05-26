@@ -1,6 +1,6 @@
 
 
-from funcionario import Funcinario
+from funcionario import Funcionario
 from visitante import Visitante
 
 class Sistema:
