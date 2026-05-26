@@ -59,9 +59,10 @@ class Visitante(Pessoa):
             self.__contadorAcessos += 1
 
             print("\nEntrada registrada com sucesso")
+            print("\nAcessos restantes: {sellf.__limiteAcessos - self.__contadorAcessos}")
 
         else:
-            print("\nLimite de acessos atingido")
+            print("\nLimite maximo de acessos atingido")
 
 
     def registrar_saida(self, horario):
@@ -88,3 +89,4 @@ class Visitante(Pessoa):
         print(f"Hora Entrada: {self.__horaEntrada}")
         print(f"Hora Saída: {self.__horaSaida}")
         print(f"Acessos usados: {self.__contadorAcessos}")
+        print(f"Limite de acessos: {self.__limiteAcessos}")
