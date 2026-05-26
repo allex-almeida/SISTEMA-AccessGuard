@@ -18,18 +18,17 @@ class Sistema:
     def gerar_id_visitante(self):
         total = len(self.__listaVisitantes)
         return f"VIS{total + 2000}"
+    
 
     def salvar_dados(self):
-        func_dict = []
-        for f in self.__listaFuncionarios:
-            func_dict.append({
-                "nome": f.nome,
-                "cpf": f.cpf,
-                "identificacao": f.identificacao,
-                "email": f.email,
-                "cargo": f.cargo,
-                "setor": f.setor
-            })
+        dados = {
+            "funcionarios": [f.__dict__ for f in self.__listaFuncionarios],
+            "visitantes": [v.__dict__ for v in self.__listaVisitantes]
+        }
+
+        with open("dados.json", "w", encoding="utf-8") as arquivo:
+            json.dump(dados, arquivo, indent=4, ensure_ascii=False)
+   
 
         vis_dict = []
         for v in self.__listaVisitantes:

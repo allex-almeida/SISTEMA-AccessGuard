@@ -4,14 +4,14 @@ class Funcionario (Pessoa):
     def __init__(self, nome, cpf, identificacao, email, cargo, setor):
         super().__init__(nome, cpf , identificacao, email)
         
-        self.__cargo =  cargo
-        self.__setor =  setor
+        self.cargo =  cargo
+        self.setor =  setor
         
-        self.__horarioEntrada = ""
-        self.__horarioSaida = ""
+        self.horarioEntrada = ""
+        self.horarioSaida = ""
         
-        self.__horarioAlmoco = ""
-        self.__horarioVoltaAlmoco = ""
+        self.horarioAlmoco = ""
+        self.horarioVoltaAlmoco = ""
         
         
     def get_cargo(self):

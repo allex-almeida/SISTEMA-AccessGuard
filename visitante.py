@@ -9,14 +9,14 @@ class Visitante(Pessoa):
 
         super().__init__(nome, cpf, identificacao, email)
 
-        self.__empresaVisitada = empresaVisitada
-        self.__validadeID = validadeID
+        self.empresaVisitada = empresaVisitada
+        self.validadeID = validadeID
 
-        self.__horaEntrada = ""
-        self.__horaSaida = ""
+        self.horaEntrada = ""
+        self.horaSaida = ""
 
-        self.__contadorAcessos = 0
-        self.__limiteAcessos = limiteAcessos
+        self.contadorAcessos = 0
+        self.limiteAcessos = limiteAcessos
 
 
     def get_empresaVisitada(self):
