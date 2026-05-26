@@ -50,7 +50,7 @@ class Pessoa:
         print(f"ID: {self.get_identificacao()}")
         print(f"E-mail: {self.get_email()}")
         
-        if self.get_ativo:
+        if self.get_ativo():
             print(f"Status : ATIVO")
         else: 
             print(f"Status : INATIVO")
