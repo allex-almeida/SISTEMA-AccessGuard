@@ -1,7 +1,7 @@
 
 
 import json
-from funcionario import Funcinario
+from funcionario import Funcionario
 from visitante import Visitante
 
 class Sistema:
@@ -55,7 +55,7 @@ class Sistema:
                 dados = json.load(arquivo)
                 
                 for f in dados["funcionarios"]:
-                    func = Funcinario(f["nome"], f["cpf"], f["identificacao"], f["email"], f["cargo"], f["setor"])
+                    func = Funcionario(f["nome"], f["cpf"], f["identificacao"], f["email"], f["cargo"], f["setor"])
                     self.__listaFuncionarios.append(func)
                 
                 for v in dados["visitantes"]:
@@ -75,7 +75,7 @@ class Sistema:
         cargo = input("Cargo: ")
         setor = input("Setor: ")
 
-        funcionario = Funcinario(nome, cpf, identificacao, email, cargo, setor)
+        funcionario = Funcionario(nome, cpf, identificacao, email, cargo, setor)
         self.__listaFuncionarios.append(funcionario)
         
         self.salvar_dados()
