@@ -4,14 +4,14 @@ class Funcionario (Pessoa):
     def __init__(self, nome, cpf, identificacao, email, cargo, setor):
         super().__init__(nome, cpf , identificacao, email)
         
-        self.cargo =  cargo
-        self.setor =  setor
+        self.__cargo =  cargo
+        self.__setor =  setor
         
-        self.horarioEntrada = ""
-        self.horarioSaida = ""
+        self.__horarioEntrada = ""
+        self.__horarioSaida = ""
         
-        self.horarioAlmoco = ""
-        self.horarioVoltaAlmoco = ""
+        self.__horarioAlmoco = ""
+        self.__horarioVoltaAlmoco = ""
         
         
     def get_cargo(self):
@@ -23,7 +23,7 @@ class Funcionario (Pessoa):
     def get_horarioEntrada(self):
         return self.__horarioEntrada
         
-    def get_chorarioSaida(self):
+    def get_horarioSaida(self):
         return self.__horarioSaida
         
     def get_horarioAlmoco(self):
