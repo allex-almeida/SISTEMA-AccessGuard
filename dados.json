@@ -1,18 +1,58 @@
 {
     "funcionarios": [
         {
-            "_Pessoa__nome": "maike silva",
-            "_Pessoa__cpf": "12345678900",
-            "_Pessoa__identificacao": "FUN1000",
-            "_Pessoa__email": "maikesilva@gmail.com",
-            "_Pessoa__ativo": true,
-            "cargo": "engeneheiro",
+            "nome": "maike silva",
+            "cpf": "12345678900",
+            "identificacao": "FUN1000",
+            "email": "silvamaike@gmail.com",
+            "cargo": "engenheiro",
             "setor": "extração",
-            "horarioEntrada": "",
-            "horarioSaida": "",
-            "horarioAlmoco": "",
-            "horarioVoltaAlmoco": ""
+            "ativo": true
+        },
+        {
+            "nome": "alex barbosa",
+            "cpf": "98765432100",
+            "identificacao": "FUN1001",
+            "email": "barbosaalex@hotmail.com",
+            "cargo": "engenheiro",
+            "setor": "transporte",
+            "ativo": true
+        },
+        {
+            "nome": "joao castro",
+            "cpf": "75395146822",
+            "identificacao": "FUN1002",
+            "email": "joaocastro@gmail.com",
+            "cargo": "gerente",
+            "setor": "geral",
+            "ativo": true
+        },
+        {
+            "nome": "marcelo serrado",
+            "cpf": "85274196388",
+            "identificacao": "FUN1003",
+            "email": "marceloserrado@gmail.com",
+            "cargo": "tecnico",
+            "setor": "caldeira",
+            "ativo": true
         }
     ],
-    "visitantes": []
+    "visitantes": [
+        {
+            "nome": "joana de souza",
+            "cpf": "13579898244",
+            "identificacao": "VIS2000",
+            "email": "souzajoada@hotmail.com",
+            "empresaVisitada": "petrobras",
+            "ativo": true
+        },
+        {
+            "nome": "marcela fernada santos",
+            "cpf": "12457896388",
+            "identificacao": "VIS2001",
+            "email": "mfernadasantos@hotmail.com",
+            "empresaVisitada": "siautec",
+            "ativo": true
+        }
+    ]
 }

@@ -2,6 +2,7 @@
 
 from pessoa import Pessoa
 
+
 class Visitante(Pessoa):
 
     def __init__(self, nome, cpf, identificacao, email,
@@ -9,15 +10,14 @@ class Visitante(Pessoa):
 
         super().__init__(nome, cpf, identificacao, email)
 
-        self.empresaVisitada = empresaVisitada
-        self.validadeID = validadeID
+        self.__empresaVisitada = empresaVisitada
+        self.__validadeID = validadeID
 
-        self.horaEntrada = ""
-        self.horaSaida = ""
+        self.__horaEntrada = ""
+        self.__horaSaida = ""
 
-        self.contadorAcessos = 0
-        self.limiteAcessos = limiteAcessos
-
+        self.__contadorAcessos = 0
+        self.__limiteAcessos = limiteAcessos
 
     def get_empresaVisitada(self):
         return self.__empresaVisitada
@@ -37,7 +37,6 @@ class Visitante(Pessoa):
     def get_limiteAcessos(self):
         return self.__limiteAcessos
 
-
     def set_empresaVisitada(self, empresaVisitada):
         self.__empresaVisitada = empresaVisitada
 
@@ -50,7 +49,6 @@ class Visitante(Pessoa):
     def set_horaSaida(self, horaSaida):
         self.__horaSaida = horaSaida
 
-
     def registrar_entrada(self, horario):
 
         if self.__contadorAcessos < self.__limiteAcessos:
@@ -59,11 +57,10 @@ class Visitante(Pessoa):
             self.__contadorAcessos += 1
 
             print("\nEntrada registrada com sucesso")
-            print("\nAcessos restantes: {sellf.__limiteAcessos - self.__contadorAcessos}")
+            print(f"\nAcessos restantes: {self.__limiteAcessos - self.__contadorAcessos}")
 
         else:
-            print("\nLimite maximo de acessos atingido")
-
+            print("\nLimite máximo de acessos atingido")
 
     def registrar_saida(self, horario):
 
@@ -71,14 +68,12 @@ class Visitante(Pessoa):
 
         print("\nSaída registrada com sucesso")
 
-
     def validar_horario(self, hora):
 
         if hora >= 8 and hora <= 18:
             return True
 
         return False
-
 
     def exibir_visitante(self):
 

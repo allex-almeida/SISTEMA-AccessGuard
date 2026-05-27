@@ -161,6 +161,7 @@ class Sistema:
         self.salvar_dados()
 
         print("\nVISITANTE CADASTRADO COM SUCESSO")
+        print("\n")
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
         print(f"E-mail: {email}")
