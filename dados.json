@@ -1,12 +1,12 @@
 {
     "funcionarios": [
         {
-            "_Pessoa__nome": "maike silva ",
+            "_Pessoa__nome": "maike silva",
             "_Pessoa__cpf": "12345678900",
             "_Pessoa__identificacao": "FUN1000",
-            "_Pessoa__email": "maike-silva@gmail.com",
+            "_Pessoa__email": "maikesilva@gmail.com",
             "_Pessoa__ativo": true,
-            "cargo": "engenheiro",
+            "cargo": "engeneheiro",
             "setor": "extração",
             "horarioEntrada": "",
             "horarioSaida": "",
