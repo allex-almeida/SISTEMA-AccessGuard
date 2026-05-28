@@ -1,0 +1,51 @@
+{
+    "contadorFuncionarios": 1003,
+    "contadorVisitantes": 2004,
+    "idsRemovidos": [
+        "VIS2002",
+        "FUN1003",
+        "VIS2004"
+    ],
+    "funcionarios": [
+        {
+            "nome": "maike silva",
+            "cpf": "12345678900",
+            "identificacao": "FUN1001",
+            "email": "maikesilva@gmail.com",
+            "cargo": "engenheiro",
+            "setor": "petroleo e gas",
+            "ativo": true,
+            "dataCadastro": "28/05/2026"
+        },
+        {
+            "nome": "alex barbosa",
+            "cpf": "98765432100",
+            "identificacao": "FUN1002",
+            "email": "alexbarbosa@hotmail.com",
+            "cargo": "engenheiro",
+            "setor": "TI",
+            "ativo": true,
+            "dataCadastro": "28/05/2026"
+        }
+    ],
+    "visitantes": [
+        {
+            "nome": "bernardo lins",
+            "cpf": "85274145633",
+            "identificacao": "VIS2001",
+            "email": "ln.bernardo@gmail.com",
+            "empresaVisitada": "petrobras",
+            "ativo": true,
+            "dataVisita": "28/05/2026"
+        },
+        {
+            "nome": "juliana brito",
+            "cpf": "96385674311",
+            "identificacao": "VIS2003",
+            "email": "jbritto@gmail.com",
+            "empresaVisitada": "siautec",
+            "ativo": true,
+            "dataVisita": "28/05/2026"
+        }
+    ]
+}
