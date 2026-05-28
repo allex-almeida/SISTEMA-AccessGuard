@@ -1,4 +1,5 @@
 import json
+
 from funcionario import Funcionario
 from visitante import Visitante
 
@@ -6,51 +7,84 @@ from visitante import Visitante
 class Sistema:
 
     def __init__(self):
+
         self.__listaFuncionarios = []
         self.__listaVisitantes = []
+
+        self.__contadorFuncionarios = 1000
+        self.__contadorVisitantes = 2000
+
+        self.__idsRemovidos = []
+
         self.carregar_dados()
 
     def gerar_id_funcionario(self):
-        total = len(self.__listaFuncionarios)
-        return f"FUN{total + 1000}"
+
+        self.__contadorFuncionarios += 1
+
+        return f"FUN{self.__contadorFuncionarios}"
 
     def gerar_id_visitante(self):
-        total = len(self.__listaVisitantes)
-        return f"VIS{total + 2000}"
+
+        self.__contadorVisitantes += 1
+
+        return f"VIS{self.__contadorVisitantes}"
 
     def salvar_dados(self):
 
         func_dict = []
 
         for f in self.__listaFuncionarios:
+
             func_dict.append({
+
                 "nome": f.get_nome(),
                 "cpf": f.get_cpf(),
                 "identificacao": f.get_identificacao(),
                 "email": f.get_email(),
+
                 "cargo": f.get_cargo(),
                 "setor": f.get_setor(),
-                "ativo": f.get_ativo()
+
+                "ativo": f.get_ativo(),
+
+                "dataCadastro": f.get_dataCadastro()
+
             })
 
         vis_dict = []
 
         for v in self.__listaVisitantes:
+
             vis_dict.append({
+
                 "nome": v.get_nome(),
                 "cpf": v.get_cpf(),
                 "identificacao": v.get_identificacao(),
                 "email": v.get_email(),
+
                 "empresaVisitada": v.get_empresaVisitada(),
-                "ativo": v.get_ativo()
+
+                "ativo": v.get_ativo(),
+
+                "dataVisita": v.get_dataVisita()
+
             })
 
         dados = {
+
+            "contadorFuncionarios": self.__contadorFuncionarios,
+            "contadorVisitantes": self.__contadorVisitantes,
+
+            "idsRemovidos": self.__idsRemovidos,
+
             "funcionarios": func_dict,
             "visitantes": vis_dict
+
         }
 
         with open("dados.json", "w", encoding="utf-8") as arquivo:
+
             json.dump(dados, arquivo, indent=4, ensure_ascii=False)
 
     def carregar_dados(self):
@@ -61,17 +95,34 @@ class Sistema:
 
                 dados = json.load(arquivo)
 
+                self.__contadorFuncionarios = dados.get(
+                    "contadorFuncionarios", 1000
+                )
+
+                self.__contadorVisitantes = dados.get(
+                    "contadorVisitantes", 2000
+                )
+
+                self.__idsRemovidos = dados.get(
+                    "idsRemovidos", []
+                )
+
                 if "funcionarios" in dados:
 
                     for f in dados["funcionarios"]:
 
                         func = Funcionario(
+
                             f["nome"],
                             f["cpf"],
                             f["identificacao"],
                             f["email"],
+
                             f["cargo"],
-                            f["setor"]
+                            f["setor"],
+
+                            f.get("dataCadastro")
+
                         )
 
                         self.__listaFuncionarios.append(func)
@@ -81,13 +132,20 @@ class Sistema:
                     for v in dados["visitantes"]:
 
                         vis = Visitante(
+
                             v["nome"],
                             v["cpf"],
                             v["identificacao"],
                             v["email"],
+
                             v["empresaVisitada"],
+
                             "18:00",
-                            6
+
+                            6,
+
+                            v.get("dataVisita")
+
                         )
 
                         self.__listaVisitantes.append(vis)
@@ -111,12 +169,15 @@ class Sistema:
         setor = input("Setor: ")
 
         funcionario = Funcionario(
+
             nome,
             cpf,
             identificacao,
             email,
+
             cargo,
             setor
+
         )
 
         self.__listaFuncionarios.append(funcionario)
@@ -124,11 +185,15 @@ class Sistema:
         self.salvar_dados()
 
         print("\n===== FUNCIONÁRIO CADASTRADO COM SUCESSO =====")
+
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
+
         print(f"E-mail: {email}")
+
         print(f"Cargo: {cargo}")
         print(f"Setor: {setor}")
+
         print(f"ID gerada: {identificacao}")
 
     def cadastrar_visitante(self):
@@ -145,13 +210,18 @@ class Sistema:
         empresaVisitada = input("Empresa Visitada: ")
 
         visitante = Visitante(
+
             nome,
             cpf,
             identificacao,
             email,
+
             empresaVisitada,
+
             "18:00",
+
             6
+
         )
 
         self.__listaVisitantes.append(visitante)
@@ -159,10 +229,14 @@ class Sistema:
         self.salvar_dados()
 
         print("\n===== VISITANTE CADASTRADO COM SUCESSO =====")
+
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
+
         print(f"E-mail: {email}")
+
         print(f"Empresa Visitada: {empresaVisitada}")
+
         print(f"ID gerada: {identificacao}")
 
     def listar_funcionarios(self):
@@ -170,7 +244,9 @@ class Sistema:
         print("\n===== FUNCIONÁRIOS =====\n")
 
         if len(self.__listaFuncionarios) == 0:
+
             print("Nenhum funcionário cadastrado.")
+
             return
 
         for funcionario in self.__listaFuncionarios:
@@ -184,7 +260,9 @@ class Sistema:
         print("\n===== VISITANTES =====\n")
 
         if len(self.__listaVisitantes) == 0:
+
             print("Nenhum visitante cadastrado.")
+
             return
 
         for visitante in self.__listaVisitantes:
@@ -217,6 +295,8 @@ class Sistema:
 
         cpf_busca = input("Digite o CPF do visitante: ")
 
+        encontrou = False
+
         for visitante in self.__listaVisitantes:
 
             if visitante.get_cpf() == cpf_busca:
@@ -225,9 +305,13 @@ class Sistema:
 
                 visitante.exibir_visitante()
 
-                return
+                print("---------------------")
 
-        print("\nVisitante não encontrado.")
+                encontrou = True
+
+        if not encontrou:
+
+            print("\nVisitante não encontrado.")
 
     def apagar_cadastro(self):
 
@@ -238,6 +322,10 @@ class Sistema:
         for funcionario in self.__listaFuncionarios:
 
             if funcionario.get_identificacao() == id_busca:
+
+                self.__idsRemovidos.append(
+                    funcionario.get_identificacao()
+                )
 
                 self.__listaFuncionarios.remove(funcionario)
 
@@ -251,6 +339,10 @@ class Sistema:
 
             if visitante.get_identificacao() == id_busca:
 
+                self.__idsRemovidos.append(
+                    visitante.get_identificacao()
+                )
+
                 self.__listaVisitantes.remove(visitante)
 
                 self.salvar_dados()
@@ -261,22 +353,42 @@ class Sistema:
 
         print("\nCadastro não encontrado.")
 
+    def listar_ids_removidos(self):
+
+        print("\n===== IDS REMOVIDOS =====\n")
+
+        if len(self.__idsRemovidos) == 0:
+
+            print("Nenhum ID removido.")
+
+            return
+
+        for id_removido in self.__idsRemovidos:
+
+            print(id_removido)
+
     def menu(self):
 
         opcao = 0
 
-        while opcao != 8:
+        while opcao != 9:
 
             print("\n===== SISTEMA PORTARIA =====\n")
 
             print("1 - Cadastrar Funcionário")
             print("2 - Cadastrar Visitante")
+
             print("3 - Listar Funcionários")
             print("4 - Listar Visitantes")
+
             print("5 - Buscar Funcionário por ID")
             print("6 - Buscar Visitante por CPF")
+
             print("7 - Apagar Cadastro")
-            print("8 - Sair")
+
+            print("8 - Listar IDs removidos")
+
+            print("9 - Sair")
 
             try:
 
@@ -311,6 +423,10 @@ class Sistema:
                     self.apagar_cadastro()
 
                 elif opcao == 8:
+
+                    self.listar_ids_removidos()
+
+                elif opcao == 9:
 
                     print("\nSistema encerrado")
 

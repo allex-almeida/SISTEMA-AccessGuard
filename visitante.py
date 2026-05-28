@@ -1,12 +1,12 @@
-
-
 from pessoa import Pessoa
+from datetime import datetime
 
 
 class Visitante(Pessoa):
 
     def __init__(self, nome, cpf, identificacao, email,
-                 empresaVisitada, validadeID, limiteAcessos):
+                 empresaVisitada, validadeID, limiteAcessos,
+                 dataVisita=None):
 
         super().__init__(nome, cpf, identificacao, email)
 
@@ -18,6 +18,11 @@ class Visitante(Pessoa):
 
         self.__contadorAcessos = 0
         self.__limiteAcessos = limiteAcessos
+
+        if dataVisita is None:
+            self.__dataVisita = datetime.now().strftime("%d/%m/%Y")
+        else:
+            self.__dataVisita = dataVisita
 
     def get_empresaVisitada(self):
         return self.__empresaVisitada
@@ -37,6 +42,9 @@ class Visitante(Pessoa):
     def get_limiteAcessos(self):
         return self.__limiteAcessos
 
+    def get_dataVisita(self):
+        return self.__dataVisita
+
     def set_empresaVisitada(self, empresaVisitada):
         self.__empresaVisitada = empresaVisitada
 
@@ -54,12 +62,15 @@ class Visitante(Pessoa):
         if self.__contadorAcessos < self.__limiteAcessos:
 
             self.__horaEntrada = horario
+
             self.__contadorAcessos += 1
 
             print("\nEntrada registrada com sucesso")
+
             print(f"\nAcessos restantes: {self.__limiteAcessos - self.__contadorAcessos}")
 
         else:
+
             print("\nLimite máximo de acessos atingido")
 
     def registrar_saida(self, horario):
@@ -80,8 +91,12 @@ class Visitante(Pessoa):
         self.exibir_dados()
 
         print(f"Empresa Visitada: {self.__empresaVisitada}")
+        print(f"Data da Visita: {self.__dataVisita}")
+
         print(f"Validade ID: {self.__validadeID}")
+
         print(f"Hora Entrada: {self.__horaEntrada}")
         print(f"Hora Saída: {self.__horaSaida}")
+
         print(f"Acessos usados: {self.__contadorAcessos}")
         print(f"Limite de acessos: {self.__limiteAcessos}")
