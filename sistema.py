@@ -100,7 +100,7 @@ class Sistema:
                 )
 
                 self.__contadorVisitantes = dados.get(
-                    "contadorVisitantes", 2000
+                    "contadorVisitantes", 4000
                 )
 
                 self.__idsRemovidos = dados.get(
