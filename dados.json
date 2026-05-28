@@ -32,7 +32,7 @@
         {
             "nome": "bernardo lins",
             "cpf": "85274145633",
-            "identificacao": "VIS2001",
+            "identificacao": "VIS4001",
             "email": "ln.bernardo@gmail.com",
             "empresaVisitada": "petrobras",
             "ativo": true,
@@ -41,7 +41,7 @@
         {
             "nome": "juliana brito",
             "cpf": "96385674311",
-            "identificacao": "VIS2003",
+            "identificacao": "VIS4003",
             "email": "jbritto@gmail.com",
             "empresaVisitada": "siautec",
             "ativo": true,
