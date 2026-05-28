@@ -1,5 +1,3 @@
-
-
 import json
 from funcionario import Funcionario
 from visitante import Visitante
@@ -125,7 +123,7 @@ class Sistema:
 
         self.salvar_dados()
 
-        print("\nFUNCIONÁRIO CADASTRADO COM SUCESSO")
+        print("\n===== FUNCIONÁRIO CADASTRADO COM SUCESSO =====")
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
         print(f"E-mail: {email}")
@@ -160,8 +158,7 @@ class Sistema:
 
         self.salvar_dados()
 
-        print("\nVISITANTE CADASTRADO COM SUCESSO")
-        print("\n")
+        print("\n===== VISITANTE CADASTRADO COM SUCESSO =====")
         print(f"Nome: {nome}")
         print(f"CPF: {cpf}")
         print(f"E-mail: {email}")
@@ -196,11 +193,79 @@ class Sistema:
 
             print("---------------------")
 
+    def buscar_funcionario_por_id(self):
+
+        print("\n===== BUSCAR FUNCIONÁRIO =====\n")
+
+        id_busca = input("Digite o ID do funcionário: ")
+
+        for funcionario in self.__listaFuncionarios:
+
+            if funcionario.get_identificacao() == id_busca:
+
+                print("\nFUNCIONÁRIO ENCONTRADO\n")
+
+                funcionario.exibir_funcionario()
+
+                return
+
+        print("\nFuncionário não encontrado.")
+
+    def buscar_visitante_por_cpf(self):
+
+        print("\n===== BUSCAR VISITANTE =====\n")
+
+        cpf_busca = input("Digite o CPF do visitante: ")
+
+        for visitante in self.__listaVisitantes:
+
+            if visitante.get_cpf() == cpf_busca:
+
+                print("\nVISITANTE ENCONTRADO\n")
+
+                visitante.exibir_visitante()
+
+                return
+
+        print("\nVisitante não encontrado.")
+
+    def apagar_cadastro(self):
+
+        print("\n===== APAGAR CADASTRO =====\n")
+
+        id_busca = input("Digite o ID do cadastro: ")
+
+        for funcionario in self.__listaFuncionarios:
+
+            if funcionario.get_identificacao() == id_busca:
+
+                self.__listaFuncionarios.remove(funcionario)
+
+                self.salvar_dados()
+
+                print("\nFuncionário removido com sucesso.")
+
+                return
+
+        for visitante in self.__listaVisitantes:
+
+            if visitante.get_identificacao() == id_busca:
+
+                self.__listaVisitantes.remove(visitante)
+
+                self.salvar_dados()
+
+                print("\nVisitante removido com sucesso.")
+
+                return
+
+        print("\nCadastro não encontrado.")
+
     def menu(self):
 
         opcao = 0
 
-        while opcao != 5:
+        while opcao != 8:
 
             print("\n===== SISTEMA PORTARIA =====\n")
 
@@ -208,7 +273,10 @@ class Sistema:
             print("2 - Cadastrar Visitante")
             print("3 - Listar Funcionários")
             print("4 - Listar Visitantes")
-            print("5 - Sair")
+            print("5 - Buscar Funcionário por ID")
+            print("6 - Buscar Visitante por CPF")
+            print("7 - Apagar Cadastro")
+            print("8 - Sair")
 
             try:
 
@@ -231,6 +299,18 @@ class Sistema:
                     self.listar_visitantes()
 
                 elif opcao == 5:
+
+                    self.buscar_funcionario_por_id()
+
+                elif opcao == 6:
+
+                    self.buscar_visitante_por_cpf()
+
+                elif opcao == 7:
+
+                    self.apagar_cadastro()
+
+                elif opcao == 8:
 
                     print("\nSistema encerrado")
 
